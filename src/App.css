@@ -1,38 +1,35 @@
-.App {
-  text-align: center;
+.contentSettings > span{
+  text-align:left;
+  padding-bottom:10px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+dt {
+  font-weight: 400 !important;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.menuItems button { 
+  border: 0 none !important;
+  padding-top:10px;
+  padding-bottom:10px;
+  margin: auto;
+}
+.menuTitle {
+  padding-left:16px;
+  font-size:x-large;
+  font-weight: bold;
+  padding-top:25px;
+}
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+  .to-hover:hover > .to-show {
+    display: block;
+    z-index: 1;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.to-show {
+  display: none;
+  color: #404040;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dropdown-menu {
+  position:fixed
 }
