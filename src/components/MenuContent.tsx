@@ -72,25 +72,25 @@ const NavigationItems = [
 
 function MenuContent ({id}:any) {
     return(
-        <div className="contentSettings container row col-8  border-start border-2 m-2">
-            <h2 className="fs-3 fw-bolder">Configure Navigation {id}</h2>
-            <Text size="medium" content="The Mega Menu can be configured here" />
-            <Text weight="bold" size="large" content="Add Navigation Entries" style={{paddingTop:"15px"}} />
-            <Text size="medium" content="Here's an example of how a section can be used to group inputs." />
-            <div  className=" row pt-4 pb-5">
-            <div className="col-4 ">
-                <Button icon={<AddIcon size="small" />}  content="Add Entry" iconPosition="before" primary />
-            </div>
-            <div className="col-8">
-                <Input fluid icon={<SearchIcon/>} placeholder="Search for a navigation entry" iconPosition="end"  />
-            </div>
-            </div>
-            <Accordion panels={NavigationItems} exclusive />
-            <div  className="d-flex flex-row-reverse pt-5 pb-2">
-            <Button  className="mx-2" content="Save" iconPosition="before" primary />
-            <Button  content="Discard" iconPosition="before"  />
-            </div>
+    <>
+      <h2 className="fs-5 fw-bolder">Configure Navigation {id}</h2>
+      <Text size="medium" content="The Mega Menu can be configured here" />
+      <Text weight="bold" size="large" content="Add Navigation Entries" style={{paddingTop:"15px"}} />
+      <Text size="medium" content="Here's an example of how a section can be used to group inputs." />
+      <div  className="row pt-4 pb-5">
+        <div className="col-2">
+            <Button icon={<AddIcon size="small" />}  content="Add Entry" iconPosition="before" primary />
         </div>
+        <div className="col-4 ">
+            <Input fluid icon={<SearchIcon/>} placeholder="Search for a navigation entry" iconPosition="end"  />
+        </div>
+      </div>
+      <Accordion panels={NavigationItems} exclusive />
+      <div  className="d-flex flex-row-reverse pt-5 pb-2">
+      <Button  className="mx-2" content="Save" iconPosition="before" primary />
+      <Button  content="Discard" iconPosition="before"  />
+      </div>
+    </>
     )
 }
 export default MenuContent;

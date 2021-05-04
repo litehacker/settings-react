@@ -88,10 +88,10 @@ function Settings () {
   ]
 
   return(
-    <div className="container row border-top col-8 mt-2">
-      <div className="  row  flex-column col-4 p-2">
+    <div className="container row border-top col-12 mt-2">
+      <div className="  row  flex-column col-2 p-2">
         <div className="border-bottom pb-2">
-          <Text weight="bold" size="larger" content="Settings" />
+          <Text weight="bold" size="large" content="Settings" />
         </div>
         <div className="pt-4 settings-list">
           <span className="circle-badge text-decoration-none">1</span>
@@ -104,9 +104,9 @@ function Settings () {
           <List items={ListAdministration} navigable styles={{paddingTop:"10px", paddingLeft:"25px"}} />
         </div>
       </div>
-
-      <MenuContent id={id} />
-      
+      <div className="contentSettings  row col-10  border-start border-2 m-2">
+        <MenuContent id={id} />
+      </div>
     </div>
   )
 }
