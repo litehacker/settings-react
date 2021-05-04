@@ -90,7 +90,7 @@ function Settings () {
   return(
     <div className="container row border-top col-12 mt-2">
       <div className="  row  flex-column col-2 p-2">
-        <div className="border-bottom pb-2">
+        <div className="border-bottom border-2 pb-2">
           <Text weight="bold" size="large" content="Settings" />
         </div>
         <div className="pt-4 settings-list">
