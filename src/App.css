@@ -33,3 +33,30 @@ dt {
 .dropdown-menu {
   position:fixed
 }
+.settings-list > ul > li {
+  height: 10px;
+}
+
+.circle-badge {
+  position: relative;
+  color: #fff;
+  background-color: #6264a7;
+  border-radius: 50%;
+  font-family: "Roboto";
+  
+  /* Alignment */
+  line-height: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Adjust as required: */
+  padding: 10px;
+}
+
+/* Height = width */
+.circle-badge::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}

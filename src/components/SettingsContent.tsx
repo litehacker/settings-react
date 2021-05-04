@@ -1,101 +1,186 @@
+import React, { useState } from 'react';
+import {Text, Accordion, List ,Image,} from '@fluentui/react-northstar';
+import ExternalLinkIcon from '../img/External_link_font_awesome.svg';
+import MenuContent from './MenuContent';
 
-import { Button, Input, Text, Accordion} from '@fluentui/react-northstar';
-import { SearchIcon,AddIcon } from '@fluentui/react-icons-northstar';
 
 const SubSubNavigationItems = [
-    {
-      key: 'one',
-      title: 'Sub Sub Navigation Item 1',
-      content: '2 3 4',
-    },
-    {
-      key: 'two',
-      title: 'Sub Sub Navigation Item 2',
-      content: '6 7 8 9',
-    },
-    {
-      key: 'three',
-      title: 'Sub Sub Navigation Item 3',
-      content: '10',
-    },
+  {
+    key: 'one',
+    title: 'Sub Sub Navigation Item 1',
+    content: '2 3 4',
+  },
+  {
+    key: 'two',
+    title: 'Sub Sub Navigation Item 2',
+    content: '6 7 8 9',
+  },
+  {
+    key: 'three',
+    title: 'Sub Sub Navigation Item 3',
+    content: '10',
+  },
 ];
 
 const SubNavigationItems = [
-    {
-      key: 'one',
-      title: 'Sub Navigation Item 1',
-      content: (<Accordion panels={SubSubNavigationItems} exclusive/>),
-    },
-    {
-      key: 'two',
-      title: 'Sub Navigation Item 2',
-      content: (<Accordion panels={SubSubNavigationItems} exclusive/>),
-    },
-    {
-      key: 'three',
-      title: 'Sub Navigation Item 3',
-      content: (<Accordion panels={SubSubNavigationItems} exclusive/>),
-    },
+  {
+    key: 'one',
+    title: 'Sub Navigation Item 1',
+    content: (<Accordion panels={SubSubNavigationItems} exclusive/>),
+  },
+  {
+    key: 'two',
+    title: 'Sub Navigation Item 2',
+    content: (<Accordion panels={SubSubNavigationItems} exclusive/>),
+  },
+  {
+    key: 'three',
+    title: 'Sub Navigation Item 3',
+    content: (<Accordion panels={SubSubNavigationItems} exclusive/>),
+  },
 ];
 
 const NavigationItems = [
-    {
-      key: 'one',
-      title: 'Navigation Item 1',
-      content: (<Accordion panels={SubNavigationItems} exclusive/>),
-    },
-    {
-      key: 'two',
-      title: 'Navigation Item 2',
+  {
+    key: 'one',
+    title: 'Navigation Item 1',
+    content: (<Accordion panels={SubNavigationItems} exclusive/>),
+  },
+  {
+    key: 'two',
+    title: 'Navigation Item 2',
+    content: (<Accordion panels={SubNavigationItems} exclusive/>),
+  },
+  {
+    key: 'three',
+    title: 'Navigation Item 3',
+    content: (<Accordion panels={SubNavigationItems} exclusive/>),
+  },
+  {
+      key: 'three',
+      title: 'Navigation Item 4',
       content: (<Accordion panels={SubNavigationItems} exclusive/>),
     },
     {
       key: 'three',
-      title: 'Navigation Item 3',
+      title: 'Navigation Item 5',
       content: (<Accordion panels={SubNavigationItems} exclusive/>),
     },
     {
-        key: 'three',
-        title: 'Navigation Item 4',
-        content: (<Accordion panels={SubNavigationItems} exclusive/>),
-      },
-      {
-        key: 'three',
-        title: 'Navigation Item 5',
-        content: (<Accordion panels={SubNavigationItems} exclusive/>),
-      },
-      {
-        key: 'three',
-        title: 'Navigation Item 6',
-        content: (<Accordion panels={SubNavigationItems} exclusive/>),
-      },
+      key: 'three',
+      title: 'Navigation Item 6',
+      content: (<Accordion panels={SubNavigationItems} exclusive/>),
+    },
 ];
 
+
+
+
+function clickHandler (index?:any) {
+  console.log('The link was clicked.' + index);
+}
+
+
 function Settings () {
+  const [id, setId] = useState("1");
+
+  
+  const ListSettings = [
+    {
+      key: '1',
+      media: (
+        <Image 
+        styles={{
+          width: '15px',
+          height: '15px',
+        }}
+        src={ExternalLinkIcon}
+        />
+      ),
+      content: 'Step 1',
+      onClick:() => {setId("1")}
+    },
+    {
+      key: '2',
+      media: (
+        <Image 
+        styles={{
+          width: '15px',
+          height: '15px',
+        }}
+        src={ExternalLinkIcon}
+        />
+      ),
+      content: 'Step 2',
+      onClick:() => {setId("2")}
+    },
+    {
+      key: '3',
+      media: (
+        <Image 
+        styles={{
+          width: '15px',
+          height: '15px',
+        }}
+        src={ExternalLinkIcon}
+        />
+      ),
+      content: 'Step 3',
+      onClick:() => {setId("3")},
+      styles:{maxHeight:"10px"}
+    },
+  ]
+  const ListAdministration = [
+    {
+      key: '1',
+      media: (
+        <Image 
+        styles={{
+          width: '15px',
+          height: '15px',
+        }}
+        src={ExternalLinkIcon}
+        />
+      ),
+      content: 'Licensing',
+      onClick:() => {setId("1 Administration")}
+    },
+    {
+      key: '2',
+      media: (
+        <Image 
+        styles={{
+          width: '15px',
+          height: '15px',
+        }}
+        src={ExternalLinkIcon}
+        />
+      ),
+      content: 'Administrations',
+      onClick:() => {setId("2 Administration")}
+    },
+  ]
+
+
   return(
-    <div className="container row">
-      <div className=" container row col-4 ">
-        
-      </div>
-      <div className="contentSettings container row col-8 ">
-        <Text weight="bold" size="larger" content="Configure Navigation" style={{paddingTop:"15px"}}/>
-        <Text size="medium" content="The Mega Menu can be configured here" />
-        <Text weight="bold" size="large" content="Add Navigation Entries" style={{paddingTop:"15px"}} />
-        <Text size="medium" content="Here's an example of how a section can be used to group inputs." />
-        <div  className=" row pt-4 pb-5">
-          <div className="col-4 ">
-            <Button icon={<AddIcon size="small" />}  content="Add Entry" iconPosition="before" primary />
-          </div>
-          <div className="col-8">
-            <Input fluid icon={<SearchIcon/>} placeholder="Search for a navigation entry" iconPosition="end"  />
-          </div>
+    <div className="container row border-top col-8 mt-2">
+      <div className="  row  flex-column col-4 p-2">
+        <div className="border-bottom pb-2">
+          <Text weight="bold" size="larger" content="Settings" />
         </div>
-        <Accordion panels={NavigationItems} exclusive />
-        <div  className="d-flex flex-row-reverse p-5">
-          <Button  className="mx-2" content="Save" iconPosition="before" primary />
-          <Button  content="Discard" iconPosition="before"  />
+        <div className="pt-4 settings-list">
+          <span className="circle-badge text-decoration-none">1</span>
+          <Text weight="bold" size="medium" content="Settings" styles={{paddingLeft:"15px"}}/>
+          <List items={ListSettings} navigable styles={{paddingTop:"10px", paddingLeft:"25px"}} />
+        </div>
+        <div className="pt-4 settings-list">
+          <span className="circle-badge text-decoration-none">2</span>
+          <Text weight="bold" size="medium" content="Administration" styles={{paddingLeft:"15px"}}/>
+          <List items={ListAdministration} navigable styles={{paddingTop:"10px", paddingLeft:"25px"}} />
         </div>
       </div>
+
+      <MenuContent id={id}/>
       
     </div>
   )
