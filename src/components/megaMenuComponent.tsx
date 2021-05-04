@@ -12,10 +12,10 @@ function MegaMenuComponent () {
               <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="main_nav">
-          <ul className="navbar-nav">
-            <li className="nav-item to-hover py-2">
-              <a className="nav-link ps-4" href="#"> MenuItem1 </a>
-              <div className="to-show position-inline">
+          <ul className="navbar-nav" >
+            <li className="nav-item to-hover pt-2" >
+              <a className="nav-link ps-4 " href="0"> MenuItem1 </a>
+              <div className="to-show start-0 position-absolute ps-4">
                 <ReactMegaMenu 
                   tolerance={50}      // optional, defaults to 100
                   direction={"RIGHT"}  // optional, defaults to "RIGHT", takes in "RIGHT" || "LEFT"
@@ -55,16 +55,61 @@ function MegaMenuComponent () {
                     }
                   }}   // defaults to an empty object. not recommended to be left blank.
                   onExit={()=>{}}  // a function to be called when a mouse leaves the container
-                  data={Categories}        // array of data to be rendered
+                  data={Categories.first}        // array of data to be rendered
                 />
               </div>
             </li>
-            <li className="nav-item ps-4 py-2"><a className="nav-link" href="#"> MenuItem2 </a></li>
-            <li className="nav-item ps-4 py-2"><a className="nav-link" href="#"> MenuItem3 </a></li>
-            <li className="nav-item ps-4 py-2"><a className="nav-link" href="#"> MenuItem4 </a></li>
-            <li className="nav-item ps-4 py-2"><a className="nav-link" href="#"> MenuItem5 </a></li>
-            <li className="nav-item ps-4 py-2">
-              <a className="nav-link" href="#">
+            <li className="nav-item to-hover ps-4 pt-2">
+              <a className="nav-link" href="1"> MenuItem2 </a>
+              <div className="to-show start-0 position-absolute ps-4">
+                <ReactMegaMenu 
+                  tolerance={50}      // optional, defaults to 100
+                  direction={"RIGHT"}  // optional, defaults to "RIGHT", takes in "RIGHT" || "LEFT"
+                  styleConfig={{
+                    menuProps: {
+                      style: {
+                        height: "503px",
+                        width: "200px",
+                        margin: "0",
+                        background: "#d9d9d9",
+                      }
+                    },
+                    contentProps: {
+                      style: {
+                        width: "800px",
+                        borderTop: "5px solid #6264a7",
+                        paddingLeft:"12px",
+                        paddingBottom:"24px",
+                      }
+                    },
+                    menuItemProps: {
+                      style: {
+                        padding: "12px",
+                      }
+                    },
+                    menuItemSelectedProps: {
+                      style: {
+                        padding: "12px",
+                        backgroundColor: "white",
+                      }
+                    },
+                    containerProps: {
+                      style: {
+                        boxShadow: "0 .5rem 1rem #d9d9d9",
+                        borderRadius: "0.25rem",
+                      }
+                    }
+                  }}   // defaults to an empty object. not recommended to be left blank.
+                  onExit={()=>{}}  // a function to be called when a mouse leaves the container
+                  data={Categories.second}        // array of data to be rendered
+                />
+              </div>
+            </li>
+            <li className="nav-item ps-4 pt-2"><a className="nav-link" href="2"> MenuItem3 </a></li>
+            <li className="nav-item ps-4 pt-2"><a className="nav-link" href="3"> MenuItem4 </a></li>
+            <li className="nav-item ps-4 pt-2"><a className="nav-link" href="4"> MenuItem5 </a></li>
+            <li className="nav-item ps-4 pt-2">
+              <a className="nav-link" href="5">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16">
                 <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
               </svg>

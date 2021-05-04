@@ -5,6 +5,9 @@
 dt {
   font-weight: 400 !important;
 }
+.nav-link{
+  height:50px;
+}
 .menuItems button { 
   border: 0 none !important;
   padding-top:10px;

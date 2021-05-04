@@ -1,85 +1,7 @@
-import React, { useState } from 'react';
-import {Text, Accordion, List ,Image,} from '@fluentui/react-northstar';
+import { useState } from 'react';
+import {Text, List ,Image,} from '@fluentui/react-northstar';
 import ExternalLinkIcon from '../img/External_link_font_awesome.svg';
 import MenuContent from './MenuContent';
-
-
-const SubSubNavigationItems = [
-  {
-    key: 'one',
-    title: 'Sub Sub Navigation Item 1',
-    content: '2 3 4',
-  },
-  {
-    key: 'two',
-    title: 'Sub Sub Navigation Item 2',
-    content: '6 7 8 9',
-  },
-  {
-    key: 'three',
-    title: 'Sub Sub Navigation Item 3',
-    content: '10',
-  },
-];
-
-const SubNavigationItems = [
-  {
-    key: 'one',
-    title: 'Sub Navigation Item 1',
-    content: (<Accordion panels={SubSubNavigationItems} exclusive/>),
-  },
-  {
-    key: 'two',
-    title: 'Sub Navigation Item 2',
-    content: (<Accordion panels={SubSubNavigationItems} exclusive/>),
-  },
-  {
-    key: 'three',
-    title: 'Sub Navigation Item 3',
-    content: (<Accordion panels={SubSubNavigationItems} exclusive/>),
-  },
-];
-
-const NavigationItems = [
-  {
-    key: 'one',
-    title: 'Navigation Item 1',
-    content: (<Accordion panels={SubNavigationItems} exclusive/>),
-  },
-  {
-    key: 'two',
-    title: 'Navigation Item 2',
-    content: (<Accordion panels={SubNavigationItems} exclusive/>),
-  },
-  {
-    key: 'three',
-    title: 'Navigation Item 3',
-    content: (<Accordion panels={SubNavigationItems} exclusive/>),
-  },
-  {
-      key: 'three',
-      title: 'Navigation Item 4',
-      content: (<Accordion panels={SubNavigationItems} exclusive/>),
-    },
-    {
-      key: 'three',
-      title: 'Navigation Item 5',
-      content: (<Accordion panels={SubNavigationItems} exclusive/>),
-    },
-    {
-      key: 'three',
-      title: 'Navigation Item 6',
-      content: (<Accordion panels={SubNavigationItems} exclusive/>),
-    },
-];
-
-
-
-
-function clickHandler (index?:any) {
-  console.log('The link was clicked.' + index);
-}
-
 
 function Settings () {
   const [id, setId] = useState("1");
@@ -98,7 +20,8 @@ function Settings () {
         />
       ),
       content: 'Step 1',
-      onClick:() => {setId("1")}
+      onClick:() => {setId("1")},
+      styles:{minHeight:"2rem !important"}
     },
     {
       key: '2',
@@ -112,7 +35,8 @@ function Settings () {
         />
       ),
       content: 'Step 2',
-      onClick:() => {setId("2")}
+      onClick:() => {setId("2")},
+      styles:{minHeight:"2rem !important"}
     },
     {
       key: '3',
@@ -127,7 +51,7 @@ function Settings () {
       ),
       content: 'Step 3',
       onClick:() => {setId("3")},
-      styles:{maxHeight:"10px"}
+      styles:{minHeight:"2rem !important"}
     },
   ]
   const ListAdministration = [
@@ -143,7 +67,8 @@ function Settings () {
         />
       ),
       content: 'Licensing',
-      onClick:() => {setId("1 Administration")}
+      onClick:() => {setId("1 Administration")},
+      styles:{minHeight:"2rem !important"}
     },
     {
       key: '2',
@@ -157,10 +82,10 @@ function Settings () {
         />
       ),
       content: 'Administrations',
-      onClick:() => {setId("2 Administration")}
+      onClick:() => {setId("2 Administration")},
+      styles:{minHeight:"2rem !important"}
     },
   ]
-
 
   return(
     <div className="container row border-top col-8 mt-2">
@@ -180,7 +105,7 @@ function Settings () {
         </div>
       </div>
 
-      <MenuContent id={id}/>
+      <MenuContent id={id} />
       
     </div>
   )

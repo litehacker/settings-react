@@ -86,7 +86,7 @@ function MenuContent ({id}:any) {
             </div>
             </div>
             <Accordion panels={NavigationItems} exclusive />
-            <div  className="d-flex flex-row-reverse p-5">
+            <div  className="d-flex flex-row-reverse pt-5 pb-2">
             <Button  className="mx-2" content="Save" iconPosition="before" primary />
             <Button  content="Discard" iconPosition="before"  />
             </div>
