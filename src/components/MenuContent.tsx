@@ -1,82 +1,58 @@
+import {FunctionComponent} from 'react';
 import { Button, Input, Text, Accordion, } from '@fluentui/react-northstar';
 import { SearchIcon, AddIcon } from '@fluentui/react-icons-northstar';
+import Data from '../data/megaMenu.json';
 
-const SubSubNavigationItems = [
-    {
-      key: 'one',
-      title: 'Sub Sub Navigation Item 1',
-      content: '2 3 4',
-    },
-    {
-      key: 'two',
-      title: 'Sub Sub Navigation Item 2',
-      content: '6 7 8 9',
-    },
-    {
-      key: 'three',
-      title: 'Sub Sub Navigation Item 3',
-      content: '10',
-    },
+const localData =  JSON.parse(JSON.stringify(Data));
+
+let ArrayAccordion:any = []
+
+
+console.log(ArrayAccordion)
+let SubNavigationItems = [
+  {
+    key: '3',
+    title: 'Navigation Item 1',
+    content: 'Content'
+  },
+  {
+    key: '4',
+    title: 'Navigation Item 2',
+    content: 'Content'
+  },
+];
+let NavigationItems = [
+  {
+    key: 'one',
+    title: 'Navigation Item 1',
+    content: (<Accordion panels={SubNavigationItems} exclusive/>),
+  },
+  {
+    key: 'two',
+    title: 'Navigation Item 2',
+    content: (<Accordion panels={SubNavigationItems} exclusive/>),
+  },
 ];
 
-const SubNavigationItems = [
-    {
-      key: 'one',
-      title: 'Sub Navigation Item 1',
-      content: (<Accordion panels={SubSubNavigationItems} exclusive/>),
-    },
-    {
-      key: 'two',
-      title: 'Sub Navigation Item 2',
-      content: (<Accordion panels={SubSubNavigationItems} exclusive/>),
-    },
-    {
-      key: 'three',
-      title: 'Sub Navigation Item 3',
-      content: (<Accordion panels={SubSubNavigationItems} exclusive/>),
-    },
-];
+type SubMenuProps ={
+  title: string,
+  titleDescription?: string,
+  subTitle?:string,
+  subTitleDescription?:string,
+  accordionNavigation?:{
+    key: string;
+    title: string;
+    content: JSX.Element;
+  }[]
+}
 
-const NavigationItems = [
-    {
-      key: 'one',
-      title: 'Navigation Item 1',
-      content: (<Accordion panels={SubNavigationItems} exclusive/>),
-    },
-    {
-      key: 'two',
-      title: 'Navigation Item 2',
-      content: (<Accordion panels={SubNavigationItems} exclusive/>),
-    },
-    {
-      key: 'three',
-      title: 'Navigation Item 3',
-      content: (<Accordion panels={SubNavigationItems} exclusive/>),
-    },
-    {
-        key: 'three',
-        title: 'Navigation Item 4',
-        content: (<Accordion panels={SubNavigationItems} exclusive/>),
-      },
-      {
-        key: 'three',
-        title: 'Navigation Item 5',
-        content: (<Accordion panels={SubNavigationItems} exclusive/>),
-      },
-      {
-        key: 'three',
-        title: 'Navigation Item 6',
-        content: (<Accordion panels={SubNavigationItems} exclusive/>),
-      },
-];
-
-function MenuContent ({id}:any) {
+const MenuContent: FunctionComponent<SubMenuProps> =  ({title, titleDescription, subTitle, subTitleDescription, accordionNavigation }) => {
     return(
     <>
-      <h2 className="fs-5 fw-bolder">Configure Navigation {id}</h2>
-      <Text size="medium" content="The Mega Menu can be configured here" />
-      <Text weight="bold" size="large" content="Add Navigation Entries" style={{paddingTop:"15px"}} />
-      <Text size="medium" content="Here's an example of how a section can be used to group inputs." />
+      <h2 className="fs-5 fw-bolder">{title}</h2>
+      <Text size="medium" content={titleDescription} />
+      <Text weight="bold" size="large" content={subTitle} style={{paddingTop:"15px"}} />
+      <Text size="medium" content={subTitleDescription} />
       <div  className="row pt-4 pb-5">
         <div className="col-2">
             <Button icon={<AddIcon size="small" />}  content="Add Entry" iconPosition="before" primary />

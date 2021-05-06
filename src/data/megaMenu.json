@@ -1,0 +1,92 @@
+[
+    {
+        "key":"1",
+        "title":"Menu 1",
+        "subMenuItem":
+        [
+            {
+                "title": "Sub Menu Item 1 1",
+                "label": "Sub Menu Item 1 1",
+                "key": "Category1",
+                "content":
+                [
+                    {
+                        "key":"2",
+                        "title":"My Career and benefits",
+                        "subItems":
+                        [
+                            "My Career and benefits 1",
+                            "My Career and benefits 2 ",
+                            "My Career and benefits 3",
+                            "My Career and benefits 4"
+                        ]
+                    },
+                    {
+                        "key":"3",
+                        "title":"My Career and benefits 2",
+                        "subItems":
+                        [
+                            "My Career and benefits",
+                            "My Career and benefits",
+                            "My Career and benefits",
+                            "My Career and benefits"
+                        ]
+                    },
+                    {
+                        "key":"4",
+                        "title":"My Career and benefits 3",
+                        "subItems":
+                        [
+                            "My Career and benefits",
+                            "My Career and benefits",
+                            "My Career and benefits",
+                            "My Career and benefits"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Sub Menu Item 1 2",
+                "label": "Sub Menu Item 1 2",
+                "key": "5",
+                "content":
+                [
+                    {
+                        "key":"6",
+                        "title":"My Career and benefits",
+                        "subItems":
+                        [
+                            "My Career and benefits 1",
+                            "My Career and benefits 2 ",
+                            "My Career and benefits 3",
+                            "My Career and benefits 4"
+                        ]
+                    },
+                    {
+                        "key":"7",
+                        "title":"My Career and benefits 2",
+                        "subItems":
+                        [
+                            "My Career and benefits",
+                            "My Career and benefits",
+                            "My Career and benefits",
+                            "My Career and benefits"
+                        ]
+                    },
+                    {
+                        "key":"8",
+                        "title":"My Career and benefits 3",
+                        "subItems":
+                        [
+                            "My Career and benefits",
+                            "My Career and benefits",
+                            "My Career and benefits",
+                            "My Career and benefits"
+                        ]
+                    }
+                ]
+            }
+            
+        ]
+    }    
+]

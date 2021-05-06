@@ -1,11 +1,95 @@
 import { useState } from 'react';
-import {Text, List ,Image,} from '@fluentui/react-northstar';
+import {Text, List ,Image, Accordion} from '@fluentui/react-northstar';
 import ExternalLinkIcon from '../img/External_link_font_awesome.svg';
 import MenuContent from './MenuContent';
 
-function Settings () {
-  const [id, setId] = useState("1");
+export type SubMenuProps ={
+  title: string,
+  titleDescription?: string,
+  subTitle?:string,
+  subTitleDescription?:string,
+  accordionNavigation?:{
+    key: string;
+    title: string;
+    content: JSX.Element;
+  }[]
+}
 
+function Settings () {
+  const [id, setId] = useState(0);
+
+  const SubSubNavigationItems = [
+    {
+      key: 'one',
+      title: 'Sub Sub Navigation Item 1',
+      content: '2 3 4',
+    },
+    {
+      key: 'two',
+      title: 'Sub Sub Navigation Item 2',
+      content: '6 7 8 9',
+    },
+    {
+      key: 'three',
+      title: 'Sub Sub Navigation Item 3',
+      content: '10',
+    },
+];
+
+const SubNavigationItems = [
+    {
+      key: 'one',
+      title: 'Sub Navigation Item 1',
+      content: (<Accordion panels={SubSubNavigationItems} exclusive/>),
+    },
+    {
+      key: 'two',
+      title: 'Sub Navigation Item 2',
+      content: (<Accordion panels={SubSubNavigationItems} exclusive/>),
+    },
+    {
+      key: 'three',
+      title: 'Sub Navigation Item 3',
+      content: (<Accordion panels={SubSubNavigationItems} exclusive/>),
+    },
+];
+
+const NavigationItems = [
+  {title:'Title 1', 
+    accordion:[
+        {
+          key: 'one',
+          title: 'Navigation Item 1',
+          content: (<Accordion panels={SubNavigationItems} exclusive/>),
+        },
+        {
+          key: 'two',
+          title: 'Navigation Item 2',
+          content: (<Accordion panels={SubNavigationItems} exclusive/>),
+        },
+        {
+          key: 'three',
+          title: 'Navigation Item 3',
+          content: (<Accordion panels={SubNavigationItems} exclusive/>),
+        },
+        {
+            key: 'three',
+            title: 'Navigation Item 4',
+            content: (<Accordion panels={SubNavigationItems} exclusive/>),
+          },
+          {
+            key: 'three',
+            title: 'Navigation Item 5',
+            content: (<Accordion panels={SubNavigationItems} exclusive/>),
+          },
+          {
+            key: 'three',
+            title: 'Navigation Item 6',
+            content: (<Accordion panels={SubNavigationItems} exclusive/>),
+          },
+    ]
+  },
+];
   
   const ListSettings = [
     {
@@ -20,7 +104,7 @@ function Settings () {
         />
       ),
       content: 'Step 1',
-      onClick:() => {setId("1")},
+      onClick:() => {setId(0)},
       styles:{minHeight:"2rem !important"}
     },
     {
@@ -35,7 +119,7 @@ function Settings () {
         />
       ),
       content: 'Step 2',
-      onClick:() => {setId("2")},
+      onClick:() => {setId(0)},
       styles:{minHeight:"2rem !important"}
     },
     {
@@ -50,7 +134,7 @@ function Settings () {
         />
       ),
       content: 'Step 3',
-      onClick:() => {setId("3")},
+      onClick:() => {setId(0)},
       styles:{minHeight:"2rem !important"}
     },
   ]
@@ -67,7 +151,7 @@ function Settings () {
         />
       ),
       content: 'Licensing',
-      onClick:() => {setId("1 Administration")},
+      onClick:() => {setId(0)},
       styles:{minHeight:"2rem !important"}
     },
     {
@@ -82,7 +166,7 @@ function Settings () {
         />
       ),
       content: 'Administrations',
-      onClick:() => {setId("2 Administration")},
+      onClick:() => {setId(0)},
       styles:{minHeight:"2rem !important"}
     },
   ]
@@ -105,7 +189,7 @@ function Settings () {
         </div>
       </div>
       <div className="contentSettings row col-9  border-start border-2 m-2">
-        <MenuContent id={id} />
+        <MenuContent title="Content Title" titleDescription="Title descrioption text here" subTitle="Sub Title" subTitleDescription="you can add entry"  accordionNavigation={NavigationItems[id].accordion}/>
       </div>
     </div>
   )
