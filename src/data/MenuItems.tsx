@@ -4,7 +4,8 @@ type MenuProps =
 {
     content:{
         title: string,
-        subItems?:string[]
+        key:string,
+        content?:any[]
     }[]
 }
 
@@ -17,9 +18,10 @@ const MenuContent: FunctionComponent<MenuProps> =  ({content}) => {
                         <div className="col-6">
                             <h3 key={index} className="menuTitle">{data.title}</h3>
                             <div className="list-group menuItems">
-                                {data.subItems?.map((value,i)=>{
+                                {data.content?.map((value,i)=>{
+                                    console.log(value.title)
                                     return(
-                                        <button key={i} className="list-group-item list-group-item-action">{value}</button>
+                                        <button key={i} className="list-group-item list-group-item-action">{value.title}</button>
                                     )
                                 })}
                             </div>

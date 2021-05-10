@@ -28,7 +28,7 @@ function MegaMenuComponent () {
             localData.map((navbar:any,index:number)=>{
               let subMenuContent:MenuContentItem = []
 
-              for (const inElem of localData[index].subMenuItem) {
+              for (const inElem of localData[index].content) {
                 subMenuContent.push(
                   {
                     label: inElem.label,

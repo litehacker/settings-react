@@ -3,48 +3,44 @@ import { Button, Input, Text, Accordion, } from '@fluentui/react-northstar';
 import { SearchIcon, AddIcon } from '@fluentui/react-icons-northstar';
 import Data from '../data/megaMenu.json';
 
-const localData =  JSON.parse(JSON.stringify(Data));
+type AccordionPanels = {
+  title:string;
+  content:any;
+}[]
 
-let ArrayAccordion:any = []
+var objects:AccordionPanels = []
 
+function createDuplicate(data:AccordionPanels,objectsOutput:AccordionPanels){
+  if(!data){
+      return
+  }
+  for(const inElem of data){
+      let objTmp:AccordionPanels = []
+      createDuplicate(inElem.content,objTmp)
+     
+      objectsOutput.push({
+          title:inElem.title,
+          //content:inElem.content
+          ...(Array.isArray(inElem.content) ? {content: <Accordion exclusive panels={objTmp}/>} : {content:inElem.content})
+      });
+  }
+}
+createDuplicate(Data,objects)
 
-console.log(ArrayAccordion)
-let SubNavigationItems = [
-  {
-    key: '3',
-    title: 'Navigation Item 1',
-    content: 'Content'
-  },
-  {
-    key: '4',
-    title: 'Navigation Item 2',
-    content: 'Content'
-  },
-];
-let NavigationItems = [
-  {
-    key: 'one',
-    title: 'Navigation Item 1',
-    content: (<Accordion panels={SubNavigationItems} exclusive/>),
-  },
-  {
-    key: 'two',
-    title: 'Navigation Item 2',
-    content: (<Accordion panels={SubNavigationItems} exclusive/>),
-  },
-];
-
+type accordionType = {
+  key?: string;
+  title: string;
+  content: any;
+  label?:string;
+}
 type SubMenuProps ={
   title: string,
   titleDescription?: string,
   subTitle?:string,
   subTitleDescription?:string,
-  accordionNavigation?:{
-    key: string;
-    title: string;
-    content: JSX.Element;
-  }[]
+  accordionNavigation?:accordionType[]
 }
+
 
 const MenuContent: FunctionComponent<SubMenuProps> =  ({title, titleDescription, subTitle, subTitleDescription, accordionNavigation }) => {
     return(
@@ -61,7 +57,7 @@ const MenuContent: FunctionComponent<SubMenuProps> =  ({title, titleDescription,
             <Input fluid icon={<SearchIcon/>} placeholder="Search for a navigation entry" iconPosition="end"  />
         </div>
       </div>
-      <Accordion panels={NavigationItems} exclusive />
+      <Accordion panels={objects} exclusive />
       <div  className="d-flex flex-row-reverse pt-5 pb-2">
       <Button  className="mx-2" content="Save" iconPosition="before" primary />
       <Button  content="Discard" iconPosition="before"  />
