@@ -5,7 +5,7 @@
         "content":
         [
             {
-                "title": "test Sub Menu Item 1 1",
+                "title": "Sub Menu Item 1 1",
                 "label": "Sub Menu Item 1 1",
                 "key": "2",
                 "content":
@@ -173,8 +173,8 @@
         "content":
         [
             {
-                "title": "test Sub Menu Item 1 1",
-                "label": "Sub Menu Item 1 1",
+                "title": "Sub Menu Item 2 1",
+                "label": "Sub Menu Item 2 1",
                 "key": "29",
                 "content":
                 [
@@ -253,8 +253,8 @@
                 ]
             },
             {
-                "title": "Sub Menu Item 1 2",
-                "label": "Sub Menu label Item 1 2",
+                "title": "Sub Menu Item 2 2",
+                "label": "Sub Menu label Item 2 2",
                 "key": "42",
                 "content":
                 [
@@ -334,10 +334,5 @@
             }
             
         ]
-    },
-    {
-        "content":"test content",
-        "key":"55",
-        "title":"test content"
     }
 ]

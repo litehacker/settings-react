@@ -69,7 +69,6 @@ const MenuContent: FunctionComponent<SubMenuProps> =  ({title, titleDescription,
   // Set up a piece of state, so that we have
   // a way to trigger a re-render.
   const [random, setRandom] = useState(Math.random());
-  console.log(menuItem);
   const Save  = () => {
     localStorage.setItem('Accordion', JSON.stringify(objects));
   }
@@ -78,14 +77,11 @@ const MenuContent: FunctionComponent<SubMenuProps> =  ({title, titleDescription,
     reRender()
   }
   const AddEntry = () => {
-    objects.push({
-      title:menuItem,
-      key:menuItem,
-      content:menuItem
-    })
+    objects.push({...objects[objects.length - 1]})
+    objects[objects.length - 1].title=menuItem
     reRender()
-
   }
+  
   // This function will change the random number,
   // and trigger a re-render (in the console,
   // you'll see a "render!" from LifecycleDemo)
@@ -101,7 +97,7 @@ const MenuContent: FunctionComponent<SubMenuProps> =  ({title, titleDescription,
           <Button icon={<AddIcon size="small" />}  content="Add Entry" iconPosition="before" primary onClick={AddEntry}/>
       </div>
       <div className="col-4 ">
-          <Input required fluid icon={<SearchIcon/>} placeholder="Search for a navigation entry" iconPosition="end"  onChange={e=>setMenuItem((e.target as HTMLInputElement).value)} />
+          <Input required fluid icon={<SearchIcon/>} placeholder="Type Navbar item to add" iconPosition="end"  onChange={e=>setMenuItem((e.target as HTMLInputElement).value)} />
       </div>
     </div>
     {mounted &&<Accordion panels={objects} exclusive onTitleClick={(e) => indexChange(e)}/>}
